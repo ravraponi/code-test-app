@@ -1,0 +1,88 @@
+
+  <mat-card class="card-body">
+    <mat-card-title>Contact Form</mat-card-title>
+    <form [formGroup]="contactForm" class="form">
+      
+      <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input type="text"
+                 formControlName="firstName"
+                 class="form-control"
+                 placeholder="First Name"
+                 matInput
+                 [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+        <mat-error *ngIf="submitted && f.firstName.errors" class="invalid-feedback"></mat-error>
+        <mat-error *ngIf="f.firstName.errors?.required">First Name is required</mat-error>
+        </mat-form-field>
+
+      <mat-form-field>
+          <mat-label>Last Name</mat-label>
+          <input type="text"
+                 formControlName="lastName"
+                 class="form-control"
+                 placeholder="Last Name"
+                 matInput
+                 [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+        <mat-error *ngIf="submitted && f.lastName?.errors" class="invalid-feedback"></mat-error>
+        <mat-error *ngIf="f.lastName.errors?.required">Last Name is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Company</mat-label>
+        <input type="text"
+               formControlName="company"
+               class="form-control"
+               placeholder="Company"
+               matInput
+               [ngClass]="{ 'is-invalid': submitted && f.company.errors }" />
+        <mat-error *ngIf="submitted && f.company?.errors" class="invalid-feedback"></mat-error>
+        <mat-error *ngIf="f.company.errors?.required">Company is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Email</mat-label>
+        <input type="text"
+               formControlName="email"
+               class="form-control"
+               placeholder="Email"
+               matInput
+               [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+          <mat-error *ngIf="submitted && f.email.errors" class="invalid-feedback"></mat-error>
+          <mat-error  *ngIf="f.email.errors?.required">Email is required</mat-error>
+          <mat-error  *ngIf="f.email.errors?.email">Email must be a valid email address</mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field class="full-width">
+        <mat-label>Phone</mat-label>
+        <input type="text"
+               formControlName="phone"
+               class="form-control"
+               placeholder="Phone"
+               matInput
+               [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+        <mat-error  *ngIf="submitted && f.phone.errors" class="invalid-feedback"></mat-error>
+        <mat-error  *ngIf="f.phone.errors?.required">Phone is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input type="text"
+               formControlName="address"
+               class="form-control"
+               placeholder="Address"
+               matInput
+               [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
+        <mat-error *ngIf="submitted && f.company?.errors" class="invalid-feedback"></mat-error>
+        <mat-error *ngIf="f.company.errors?.required">Company is required</mat-error>
+      </mat-form-field>
+
+      <div class="button-row">
+        <button mat-raised-button type="reset" (click)="onReset()">Cancel</button>
+        <button mat-raised-button  type="SUBMIT" color="primary" (click)="onSubmit()">Save</button>
+      </div>
+    </form>
+  </mat-card>
+
+
+
